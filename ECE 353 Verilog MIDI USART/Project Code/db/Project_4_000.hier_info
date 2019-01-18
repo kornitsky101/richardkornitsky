@@ -1,0 +1,249 @@
+|Project_4
+LED[0] <= LEDlit:L1.port0
+LED[1] <= LEDlit:L1.port0
+LED[2] <= LEDlit:L1.port0
+LED[3] <= LEDlit:L1.port0
+LED[4] <= LEDlit:L1.port0
+LED[5] <= LEDlit:L1.port0
+LED[6] <= LEDlit:L1.port0
+LED[7] <= LEDlit:L1.port0
+dataOut[0] <= dataOut[0].DB_MAX_OUTPUT_PORT_TYPE
+dataOut[1] <= dataOut[1].DB_MAX_OUTPUT_PORT_TYPE
+dataOut[2] <= dataOut[2].DB_MAX_OUTPUT_PORT_TYPE
+dataOut[3] <= dataOut[3].DB_MAX_OUTPUT_PORT_TYPE
+dataOut[4] <= dataOut[4].DB_MAX_OUTPUT_PORT_TYPE
+dataOut[5] <= dataOut[5].DB_MAX_OUTPUT_PORT_TYPE
+dataOut[6] <= dataOut[6].DB_MAX_OUTPUT_PORT_TYPE
+dataOut[7] <= dataOut[7].DB_MAX_OUTPUT_PORT_TYPE
+clk <= clk.DB_MAX_OUTPUT_PORT_TYPE
+MIDI => MIDI.IN1
+clkin => clkin.IN1
+
+
+|Project_4|clkScale:C1
+clkout <= clkout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clkin => clkout~reg0.CLK
+clkin => cnt[0].CLK
+clkin => cnt[1].CLK
+clkin => cnt[2].CLK
+clkin => cnt[3].CLK
+clkin => cnt[4].CLK
+clkin => cnt[5].CLK
+clkin => cnt[6].CLK
+clkin => clkreg.CLK
+
+
+|Project_4|inputBuffer:I1
+dataOut <= Dflip:D2.port0
+dataIn => dataIn.IN1
+clk => clk.IN2
+
+
+|Project_4|inputBuffer:I1|Dflip:D1
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+
+
+|Project_4|inputBuffer:I1|Dflip:D2
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+
+
+|Project_4|decoder:D1
+data[0] <= Dflip:D8.port0
+data[1] <= trans[1].DB_MAX_OUTPUT_PORT_TYPE
+data[2] <= trans[2].DB_MAX_OUTPUT_PORT_TYPE
+data[3] <= trans[3].DB_MAX_OUTPUT_PORT_TYPE
+data[4] <= trans[4].DB_MAX_OUTPUT_PORT_TYPE
+data[5] <= trans[5].DB_MAX_OUTPUT_PORT_TYPE
+data[6] <= trans[6].DB_MAX_OUTPUT_PORT_TYPE
+data[7] <= trans[7].DB_MAX_OUTPUT_PORT_TYPE
+clk => clk.IN8
+MIDI => MIDI.IN1
+
+
+|Project_4|decoder:D1|Dflip:D1
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+
+
+|Project_4|decoder:D1|Dflip:D2
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+
+
+|Project_4|decoder:D1|Dflip:D3
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+
+
+|Project_4|decoder:D1|Dflip:D4
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+
+
+|Project_4|decoder:D1|Dflip:D5
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+
+
+|Project_4|decoder:D1|Dflip:D6
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+
+
+|Project_4|decoder:D1|Dflip:D7
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+
+
+|Project_4|decoder:D1|Dflip:D8
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+
+
+|Project_4|record:R1
+dataOut[0] <= holdData:H1.port0
+dataOut[1] <= holdData:H1.port0
+dataOut[2] <= holdData:H1.port0
+dataOut[3] <= holdData:H1.port0
+dataOut[4] <= holdData:H1.port0
+dataOut[5] <= holdData:H1.port0
+dataOut[6] <= holdData:H1.port0
+dataOut[7] <= holdData:H1.port0
+save <= save.DB_MAX_OUTPUT_PORT_TYPE
+data[0] => data[0].IN1
+data[1] => data[1].IN1
+data[2] => data[2].IN1
+data[3] => data[3].IN1
+data[4] => data[4].IN1
+data[5] => data[5].IN1
+data[6] => data[6].IN1
+data[7] => data[7].IN1
+clk => clk.IN2
+
+
+|Project_4|record:R1|counter:C1
+cnt[0] <= cnt[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[1] <= cnt[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[2] <= cnt[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[3] <= cnt[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk => cnt[0]~reg0.CLK
+clk => cnt[1]~reg0.CLK
+clk => cnt[2]~reg0.CLK
+clk => cnt[3]~reg0.CLK
+start => cnt.OUTPUTSELECT
+start => cnt.OUTPUTSELECT
+start => cnt.OUTPUTSELECT
+start => cnt.OUTPUTSELECT
+
+
+|Project_4|record:R1|holdData:H1
+stored[0] <= stored[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+stored[1] <= stored[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+stored[2] <= stored[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+stored[3] <= stored[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+stored[4] <= stored[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+stored[5] <= stored[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+stored[6] <= stored[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+stored[7] <= stored[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data[0] => Equal0.IN15
+data[0] => stored.DATAB
+data[1] => Equal0.IN14
+data[1] => stored.DATAB
+data[2] => Equal0.IN13
+data[2] => stored.DATAB
+data[3] => Equal0.IN12
+data[3] => stored.DATAB
+data[4] => Equal0.IN11
+data[4] => stored.DATAB
+data[5] => Equal0.IN10
+data[5] => stored.DATAB
+data[6] => Equal0.IN9
+data[6] => stored.DATAB
+data[7] => Equal0.IN8
+data[7] => stored.DATAB
+save => stored.OUTPUTSELECT
+save => stored.OUTPUTSELECT
+save => stored.OUTPUTSELECT
+save => stored.OUTPUTSELECT
+save => stored.OUTPUTSELECT
+save => stored.OUTPUTSELECT
+save => stored.OUTPUTSELECT
+save => stored.OUTPUTSELECT
+clk => always0.IN0
+
+
+|Project_4|frameStatus:F1
+change <= previousFrame:P1.port0
+frame[0] <= frame[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+frame[1] <= frame[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+save => save.IN1
+clk => clk.IN1
+
+
+|Project_4|frameStatus:F1|previousFrame:P1
+change <= change~reg0.DB_MAX_OUTPUT_PORT_TYPE
+save => change~reg0.DATAIN
+clk => always0.IN0
+
+
+|Project_4|LEDlit:L1
+LED[0] <= LED[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED[1] <= LED[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED[2] <= LED[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED[3] <= LED[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED[4] <= LED[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED[5] <= LED[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED[6] <= LED[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED[7] <= LED[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk => LED[0]~reg0.CLK
+clk => LED[1]~reg0.CLK
+clk => LED[2]~reg0.CLK
+clk => LED[3]~reg0.CLK
+clk => LED[4]~reg0.CLK
+clk => LED[5]~reg0.CLK
+clk => LED[6]~reg0.CLK
+clk => LED[7]~reg0.CLK
+clk => onOff.CLK
+change => onOff.OUTPUTSELECT
+change => LED.OUTPUTSELECT
+change => LED.OUTPUTSELECT
+change => LED.OUTPUTSELECT
+change => LED.OUTPUTSELECT
+change => LED.OUTPUTSELECT
+change => LED.OUTPUTSELECT
+change => LED.OUTPUTSELECT
+change => LED.OUTPUTSELECT
+frame[0] => Equal0.IN3
+frame[0] => Equal2.IN3
+frame[1] => Equal0.IN2
+frame[1] => Equal2.IN2
+dataOut[0] => Equal1.IN15
+dataOut[0] => LED.DATAB
+dataOut[1] => Equal1.IN14
+dataOut[1] => LED.DATAB
+dataOut[2] => Equal1.IN13
+dataOut[2] => LED.DATAB
+dataOut[3] => Equal1.IN12
+dataOut[3] => LED.DATAB
+dataOut[4] => Equal1.IN11
+dataOut[4] => LED.DATAB
+dataOut[5] => Equal1.IN10
+dataOut[5] => LED.DATAB
+dataOut[6] => Equal1.IN9
+dataOut[6] => LED.DATAB
+dataOut[7] => Equal1.IN8
+dataOut[7] => LED.DATAB
+
+

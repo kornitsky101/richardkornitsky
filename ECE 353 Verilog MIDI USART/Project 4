@@ -1,0 +1,178 @@
+//ECE 353 Project 4, Written by: Richard Kornitsky, Josesph Orlando, Nicholas Kafasis
+module main(LED, clk, MIDI);
+  input clock, MIDI;
+  output [7:0] LED;
+  
+  wire midiBuff;													//Buffered MIDI input
+  wire [7:0] data;												//Paralell output of decoder
+  
+  reg [1:0] frameStatus = 2'b00;					//Inicates current or next frame
+  reg onOff;															//Keypress on or off, 1 if on, 0 if off
+  reg [7:0] dataStore;										//Regisor locking in 8 bits of data
+  
+  inputBuffer In1 (midiBuff, MIDI, clk);	//Buffers midi input from device
+  decoder D1 (data, clk, midiBuff);				//Puts midi data into parallel 8 bit output
+  //initialize clock 4 MHz is 128 faster than 31,250 Hz (MIDI Baud Rate)
+  
+  //logic for how the program is run is here
+	
+endmodule//end main
+
+module frameOneAnalyzer();
+  if(frameStatus = 2'b00) begin
+    if(data[0] == 1'b1)begin
+      
+    end
+  end
+endmodule//end FrameOneAnalyzer
+
+module inputBuffer(dataOut, dataIn, clk);
+  input dataIn, clk;
+  output dataOut;
+  wire transfer;
+  Dff D1 (transfer, dataIn, clk);
+  Dff D2 (dataOut, transfer, clk);
+endmodule//end inputBuffer
+
+module statusLooker(frame1,status);
+  input frame1;
+  output status
+endmodule//end statusLooker
+
+
+module decoder(data, clk, MIDI);
+  input clk, MIDI;
+  output [7:0] data;
+  wire [7:0] trans;
+  Dff D1 (trans[0], MIDI, clk);							//DFF locking in each bit an passing it along from the serial data
+  Dff D2 (trans[1], trans[0], clk);
+  Dff D3 (trans[2], trans[1], clk);
+  Dff D4 (trans[3], trans[2], clk);
+  Dff D5 (trans[4], trans[3], clk);
+  Dff D6 (trans[5], trans[4], clk);
+  Dff D7 (trans[6], trans[5], clk);
+  Dff D8 (trans[7], trans[6], clk);
+  assign data = trans;											//Transfering the outputs from the DFF into the output wires
+endmodule//end decoder
+
+
+
+module Dff(q, data, clk);   //d flip flop -----corrected
+  input data, clk;
+  output q;
+  reg q;
+  always @ (posedge clk) 
+      q <= data;
+endmodule//end Dff
+
+
+
+
+module MUX(out, in0, in1, s);			//MUX with 2 inputs
+  input in0, in1, s;
+  output out;
+  reg out;
+  always @ (s or in0 or in1)
+    begin:MUX
+    if(s == 1'b0)begin
+      assign out = in0;
+      end//end if
+    else
+      begin
+      assign out = in1;
+      end//end else
+    end//end always
+endmodule//end MUX
+
+module clkScale(clkin, clk);
+	input clkin;
+	output clk = 1'b0;
+	
+	reg [6:0]cnt = 7'b0;
+    wire [6:0]cnt_next;
+	assign cnt_next = cnt + 1'b1;
+	
+	always @(posedge clkin)
+		if(cnt == 7b'0111111)begin
+			clk = 1'b1;
+		end
+		if(cnt == 7b'1111111)begin
+			clk = 1'b0;
+		end
+		cnt <= cnt_next;
+	end
+endmodule//end clkScale
+
+
+
+/*
+module DeMUX(A, B, C, data, sel);
+  input [7:0] data;
+  input [1:0] sel;
+  output [7:0] A, B, C;
+  case (sel)
+    2'b00 : begin
+      A <= data;
+    end
+    
+    2'b01 : begin
+      B <= data;
+    end
+    
+    2'b01 : begin
+      C <= data;
+    end
+    
+    2'b11 : begin
+      //do nothing
+    end
+  endcase//end switch
+endmodule//end DeMUX
+*/
+
+
+/*
+  ORDER OF EVENTS:
+  1: System listens for first start byte from MIDI signal
+  
+  FIRST FRAME ON
+  2: First start bit seen, prepare for the first frame of data to enter
+  3: Record the 8 bits if data from this first frame
+  4: Determine weather this is an on or off message
+  5: Observe off bit and resume listen function as the the device waits for 2nd start bit
+  
+  SECOND FRAME ON
+  6: Second start bit seen, prepare to record data
+  7: Record the 8 bits if data from this second frame
+  8: Use 7 LSB to determine note bit code, send bit code to LEDs
+  9: Observe off bit and resume listen function as the the device waits for 3rd start bit
+  
+  THIRD FRAME ON
+  10: Third start bit seen, prepare system
+  11: Skip data recording since we do not care about velocity
+  12: End bit seen, the entire MIDI On message has passed through the system
+  
+  OFF
+  13: First start bit seen, prepare for the first frame of data to enter
+  14: Record the 8 bits if data from this first frame
+  15: Determine weather this is an on or off message
+  16: If on is seen, go to step 2, otherwise continue
+  17:	Turnoff all LEDs
+  18: Observe off bit and resume listen function as the the device waits for 2nd start bit
+  
+  19: Allow the next two frames to pass through the system, their information means nothing
+*/
+
+
+/*
+TO DOs
+Control Logic
+-Detect Start Bit
+-Handle Multiple Frames
+-Store 8 bit data into registor
+-On/off?
+-Off, lights off
+-On, wait for frame
+-Output light notes for on
+-Ignore frame 3
+*/

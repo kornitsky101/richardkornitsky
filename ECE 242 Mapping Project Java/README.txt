@@ -1,0 +1,3 @@
+Richard Kornitsky ID:29834305 rkornitsky@umass.edu
+
+All of the functions in App1 and App2 work in this project. The main improvement to this project that I added was the draw function for the StdDraw for the first app. Rather then using the plot method for the first app that would become slower and slower, I drew each element in while I printed it. That allowed me to run faster since I was only printing one element, not the entire graph. The second app did not need this implementation since the amount of paths it would run with wouldn't be effect as severly. I did not attempt the extra credit in this project.

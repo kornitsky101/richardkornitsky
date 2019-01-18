@@ -1,0 +1,44 @@
+|test2
+frame[1] <= frame[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+frame[0] <= frame[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataIn[0] => dataIn[0]~7.IN1
+dataIn[1] => dataIn[1]~6.IN1
+dataIn[2] => dataIn[2]~5.IN1
+dataIn[3] => dataIn[3]~4.IN1
+dataIn[4] => dataIn[4]~3.IN1
+dataIn[5] => dataIn[5]~2.IN1
+dataIn[6] => dataIn[6]~1.IN1
+dataIn[7] => dataIn[7]~0.IN1
+clk => clk~0.IN1
+change <= previousFrame:P1.port0
+
+
+|test2|previousFrame:P1
+change <= change~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data[0] => Equal0.IN7
+data[0] => oldNote~7.DATAA
+data[1] => Equal0.IN6
+data[1] => oldNote~6.DATAA
+data[2] => Equal0.IN5
+data[2] => oldNote~5.DATAA
+data[3] => Equal0.IN4
+data[3] => oldNote~4.DATAA
+data[4] => Equal0.IN3
+data[4] => oldNote~3.DATAA
+data[5] => Equal0.IN2
+data[5] => oldNote~2.DATAA
+data[6] => Equal0.IN1
+data[6] => oldNote~1.DATAA
+data[7] => Equal0.IN0
+data[7] => oldNote~0.DATAA
+clk => oldNote[0].CLK
+clk => oldNote[1].CLK
+clk => oldNote[2].CLK
+clk => oldNote[3].CLK
+clk => oldNote[4].CLK
+clk => oldNote[5].CLK
+clk => oldNote[6].CLK
+clk => oldNote[7].CLK
+clk => change~reg0.CLK
+
+

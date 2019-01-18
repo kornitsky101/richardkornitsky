@@ -1,0 +1,442 @@
+Classic Timing Analyzer report for Project_4
+Wed Feb 21 19:26:43 2018
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clkin'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                               ;
++------------------------------+-------+---------------+----------------------------------+----------------------------------------------------+---------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                                               ; To                              ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+----------------------------------------------------+---------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; -1.000 ns                        ; MIDI                                               ; inputBuffer:I1|Dflip:D1|q       ; --         ; clkin    ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 13.000 ns                        ; record:R1|holdData:H1|stored[0]                    ; dataOut[0]                      ; clkin      ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 6.000 ns                         ; MIDI                                               ; inputBuffer:I1|Dflip:D1|q       ; --         ; clkin    ; 0            ;
+; Clock Setup: 'clkin'         ; N/A   ; None          ; 33.33 MHz ( period = 30.000 ns ) ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|holdData:H1|stored[6] ; clkin      ; clkin    ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                                    ;                                 ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+----------------------------------------------------+---------------------------------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EPM7064SLC44-10    ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clkin           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clkin'                                                                                                                                                                                                                                                                                                ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------------------------+----------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                               ; To                                                 ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------------------------+----------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D1|q                              ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D2|q                              ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D3|q                              ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D4|q                              ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D5|q                              ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D6|q                              ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D7|q                              ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D8|q                              ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D1|q                              ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D2|q                              ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D3|q                              ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D4|q                              ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D5|q                              ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D6|q                              ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D7|q                              ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D8|q                              ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D1|q                              ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D2|q                              ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D3|q                              ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D4|q                              ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D5|q                              ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D6|q                              ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D7|q                              ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D8|q                              ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D1|q                              ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D2|q                              ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D3|q                              ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D4|q                              ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D5|q                              ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D6|q                              ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D7|q                              ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; decoder:D1|Dflip:D8|q                              ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 33.33 MHz ( period = 30.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 11.000 ns               ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; decoder:D1|Dflip:D8|q                              ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; decoder:D1|Dflip:D5|q                              ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; decoder:D1|Dflip:D3|q                              ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; decoder:D1|Dflip:D1|q                              ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 46.30 MHz ( period = 21.600 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; frameStatus:F1|previousFrame:P1|change             ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; frameStatus:F1|previousFrame:P1|change             ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; frameStatus:F1|previousFrame:P1|change             ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; frameStatus:F1|previousFrame:P1|change             ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; frameStatus:F1|frame[0]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; frameStatus:F1|frame[0]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; frameStatus:F1|frame[0]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; frameStatus:F1|frame[0]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; frameStatus:F1|frame[1]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; frameStatus:F1|frame[1]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; frameStatus:F1|frame[1]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; frameStatus:F1|frame[1]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D1|q                              ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D2|q                              ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D3|q                              ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D4|q                              ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D5|q                              ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D6|q                              ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D7|q                              ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D1|q                              ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D2|q                              ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D3|q                              ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D4|q                              ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D6|q                              ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D7|q                              ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D8|q                              ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D1|q                              ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D2|q                              ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D4|q                              ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D5|q                              ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D6|q                              ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D7|q                              ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D8|q                              ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D2|q                              ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D3|q                              ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D4|q                              ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D5|q                              ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D6|q                              ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D7|q                              ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; decoder:D1|Dflip:D8|q                              ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|previousFrame:P1|change             ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[0]                            ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[1]                            ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[2]                    ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[1]                    ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[0]                    ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[3]                    ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[4]                    ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[5]                    ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[6]                    ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[7]                    ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|previousFrame:P1|change             ; LEDlit:L1|LED[1]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[0]                            ; LEDlit:L1|LED[1]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[1]                            ; LEDlit:L1|LED[1]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[1]                    ; LEDlit:L1|LED[1]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|previousFrame:P1|change             ; LEDlit:L1|LED[0]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[0]                            ; LEDlit:L1|LED[0]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[1]                            ; LEDlit:L1|LED[0]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[0]                    ; LEDlit:L1|LED[0]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|previousFrame:P1|change             ; LEDlit:L1|LED[2]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[0]                            ; LEDlit:L1|LED[2]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[1]                            ; LEDlit:L1|LED[2]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[2]                    ; LEDlit:L1|LED[2]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|previousFrame:P1|change             ; LEDlit:L1|LED[3]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[0]                            ; LEDlit:L1|LED[3]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[1]                            ; LEDlit:L1|LED[3]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[3]                    ; LEDlit:L1|LED[3]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|previousFrame:P1|change             ; LEDlit:L1|LED[4]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[0]                            ; LEDlit:L1|LED[4]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[1]                            ; LEDlit:L1|LED[4]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[4]                    ; LEDlit:L1|LED[4]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|previousFrame:P1|change             ; LEDlit:L1|LED[5]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[0]                            ; LEDlit:L1|LED[5]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[1]                            ; LEDlit:L1|LED[5]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[5]                    ; LEDlit:L1|LED[5]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|previousFrame:P1|change             ; LEDlit:L1|LED[6]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[0]                            ; LEDlit:L1|LED[6]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[1]                            ; LEDlit:L1|LED[6]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[6]                    ; LEDlit:L1|LED[6]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|previousFrame:P1|change             ; LEDlit:L1|LED[7]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[0]                            ; LEDlit:L1|LED[7]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; frameStatus:F1|frame[1]                            ; LEDlit:L1|LED[7]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 50.00 MHz ( period = 20.000 ns )                    ; record:R1|holdData:H1|stored[7]                    ; LEDlit:L1|LED[7]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; decoder:D1|Dflip:D1|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; decoder:D1|Dflip:D2|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; decoder:D1|Dflip:D3|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; decoder:D1|Dflip:D4|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; decoder:D1|Dflip:D5|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; decoder:D1|Dflip:D6|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; decoder:D1|Dflip:D7|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; decoder:D1|Dflip:D8|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[3] ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; record:R1|holdData:H1|stored[0]                    ; record:R1|holdData:H1|stored[0]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; record:R1|holdData:H1|stored[3]                    ; record:R1|holdData:H1|stored[3]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; record:R1|holdData:H1|stored[5]                    ; record:R1|holdData:H1|stored[5]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 92.59 MHz ( period = 10.800 ns )                    ; record:R1|holdData:H1|stored[7]                    ; record:R1|holdData:H1|stored[7]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.800 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[2] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; decoder:D1|Dflip:D1|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; decoder:D1|Dflip:D2|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; decoder:D1|Dflip:D3|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; decoder:D1|Dflip:D4|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; decoder:D1|Dflip:D5|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; decoder:D1|Dflip:D6|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; decoder:D1|Dflip:D7|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; decoder:D1|Dflip:D8|q                              ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[0] ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; record:R1|counter:C1|lpm_counter:cnt_rtl_0|dffs[1] ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; frameStatus:F1|frame[0]                            ; frameStatus:F1|frame[0]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; frameStatus:F1|frame[1]                            ; frameStatus:F1|frame[0]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; frameStatus:F1|frame[0]                            ; frameStatus:F1|frame[1]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; frameStatus:F1|frame[1]                            ; frameStatus:F1|frame[1]                            ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; record:R1|holdData:H1|stored[2]                    ; record:R1|holdData:H1|stored[2]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; record:R1|holdData:H1|stored[1]                    ; record:R1|holdData:H1|stored[1]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; record:R1|holdData:H1|stored[4]                    ; record:R1|holdData:H1|stored[4]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; record:R1|holdData:H1|stored[6]                    ; record:R1|holdData:H1|stored[6]                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|onOff                                    ; LEDlit:L1|onOff                                    ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|onOff                                    ; LEDlit:L1|LED[1]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|LED[1]                                   ; LEDlit:L1|LED[1]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|onOff                                    ; LEDlit:L1|LED[0]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|LED[0]                                   ; LEDlit:L1|LED[0]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|onOff                                    ; LEDlit:L1|LED[2]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|LED[2]                                   ; LEDlit:L1|LED[2]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|onOff                                    ; LEDlit:L1|LED[3]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|LED[3]                                   ; LEDlit:L1|LED[3]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|onOff                                    ; LEDlit:L1|LED[4]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|LED[4]                                   ; LEDlit:L1|LED[4]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|onOff                                    ; LEDlit:L1|LED[5]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|LED[5]                                   ; LEDlit:L1|LED[5]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|onOff                                    ; LEDlit:L1|LED[6]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|LED[6]                                   ; LEDlit:L1|LED[6]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; N/A                                     ; 100.00 MHz ( period = 10.000 ns )                   ; LEDlit:L1|onOff                                    ; LEDlit:L1|LED[7]                                   ; clkin      ; clkin    ; None                        ; None                      ; 6.000 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                                    ;                                                    ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------------------------+----------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------+
+; tsu                                                                             ;
++-------+--------------+------------+------+---------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From ; To                        ; To Clock ;
++-------+--------------+------------+------+---------------------------+----------+
+; N/A   ; None         ; -1.000 ns  ; MIDI ; inputBuffer:I1|Dflip:D1|q ; clkin    ;
++-------+--------------+------------+------+---------------------------+----------+
+
+
++-----------------------------------------------------------------------------------------------+
+; tco                                                                                           ;
++-------+--------------+------------+---------------------------------+------------+------------+
+; Slack ; Required tco ; Actual tco ; From                            ; To         ; From Clock ;
++-------+--------------+------------+---------------------------------+------------+------------+
+; N/A   ; None         ; 13.000 ns  ; LEDlit:L1|LED[7]                ; LED[7]     ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; LEDlit:L1|LED[6]                ; LED[6]     ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; LEDlit:L1|LED[5]                ; LED[5]     ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; LEDlit:L1|LED[4]                ; LED[4]     ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; LEDlit:L1|LED[3]                ; LED[3]     ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; LEDlit:L1|LED[2]                ; LED[2]     ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; LEDlit:L1|LED[1]                ; LED[1]     ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; LEDlit:L1|LED[0]                ; LED[0]     ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; record:R1|holdData:H1|stored[7] ; dataOut[7] ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; record:R1|holdData:H1|stored[6] ; dataOut[6] ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; record:R1|holdData:H1|stored[5] ; dataOut[5] ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; record:R1|holdData:H1|stored[4] ; dataOut[4] ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; record:R1|holdData:H1|stored[3] ; dataOut[3] ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; record:R1|holdData:H1|stored[2] ; dataOut[2] ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; record:R1|holdData:H1|stored[1] ; dataOut[1] ; clkin      ;
+; N/A   ; None         ; 13.000 ns  ; record:R1|holdData:H1|stored[0] ; dataOut[0] ; clkin      ;
+; N/A   ; None         ; 5.000 ns   ; clkScale:C1|clkout              ; clk        ; clkin      ;
++-------+--------------+------------+---------------------------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------+
+; th                                                                                    ;
++---------------+-------------+-----------+------+---------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From ; To                        ; To Clock ;
++---------------+-------------+-----------+------+---------------------------+----------+
+; N/A           ; None        ; 6.000 ns  ; MIDI ; inputBuffer:I1|Dflip:D1|q ; clkin    ;
++---------------+-------------+-----------+------+---------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Wed Feb 21 19:26:43 2018
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off Project_4 -c Project_4
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis does not support the analysis of latches as synchronous elements for the currently selected device family
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clkin" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "clkScale:C1|clkout" as buffer
+Info: Clock "clkin" has Internal fmax of 33.33 MHz between source register "decoder:D1|Dflip:D1|q" and destination register "record:R1|holdData:H1|stored[2]" (period= 30.0 ns)
+    Info: + Longest register to register delay is 11.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC28; Fanout = 13; REG Node = 'decoder:D1|Dflip:D1|q'
+        Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.000 ns; Loc. = SEXP56; Fanout = 1; COMB Node = 'record:R1|holdData:H1|stored[2]~25'
+        Info: 3: + IC(0.000 ns) + CELL(5.000 ns) = 11.000 ns; Loc. = LC52; Fanout = 5; REG Node = 'record:R1|holdData:H1|stored[2]'
+        Info: Total cell delay = 10.000 ns ( 90.91 % )
+        Info: Total interconnect delay = 1.000 ns ( 9.09 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clkin" to destination register is 9.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_43; Fanout = 8; CLK Node = 'clkin'
+            Info: 2: + IC(0.000 ns) + CELL(2.000 ns) = 3.500 ns; Loc. = LC33; Fanout = 38; REG Node = 'clkScale:C1|clkout'
+            Info: 3: + IC(1.000 ns) + CELL(5.000 ns) = 9.500 ns; Loc. = LC52; Fanout = 5; REG Node = 'record:R1|holdData:H1|stored[2]'
+            Info: Total cell delay = 8.500 ns ( 89.47 % )
+            Info: Total interconnect delay = 1.000 ns ( 10.53 % )
+        Info: - Longest clock path from clock "clkin" to source register is 9.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_43; Fanout = 8; CLK Node = 'clkin'
+            Info: 2: + IC(0.000 ns) + CELL(2.000 ns) = 3.500 ns; Loc. = LC33; Fanout = 38; REG Node = 'clkScale:C1|clkout'
+            Info: 3: + IC(1.000 ns) + CELL(5.000 ns) = 9.500 ns; Loc. = LC28; Fanout = 13; REG Node = 'decoder:D1|Dflip:D1|q'
+            Info: Total cell delay = 8.500 ns ( 89.47 % )
+            Info: Total interconnect delay = 1.000 ns ( 10.53 % )
+    Info: + Micro clock to output delay of source is 2.000 ns
+    Info: + Micro setup delay of destination is 2.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "inputBuffer:I1|Dflip:D1|q" (data pin = "MIDI", clock pin = "clkin") is -1.000 ns
+    Info: + Longest pin to register delay is 6.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_26; Fanout = 1; PIN Node = 'MIDI'
+        Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC22; Fanout = 1; REG Node = 'inputBuffer:I1|Dflip:D1|q'
+        Info: Total cell delay = 5.500 ns ( 84.62 % )
+        Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+    Info: + Micro setup delay of destination is 2.000 ns
+    Info: - Shortest clock path from clock "clkin" to destination register is 9.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_43; Fanout = 8; CLK Node = 'clkin'
+        Info: 2: + IC(0.000 ns) + CELL(2.000 ns) = 3.500 ns; Loc. = LC33; Fanout = 38; REG Node = 'clkScale:C1|clkout'
+        Info: 3: + IC(1.000 ns) + CELL(5.000 ns) = 9.500 ns; Loc. = LC22; Fanout = 1; REG Node = 'inputBuffer:I1|Dflip:D1|q'
+        Info: Total cell delay = 8.500 ns ( 89.47 % )
+        Info: Total interconnect delay = 1.000 ns ( 10.53 % )
+Info: tco from clock "clkin" to destination pin "LED[7]" through register "LEDlit:L1|LED[7]" is 13.000 ns
+    Info: + Longest clock path from clock "clkin" to source register is 9.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_43; Fanout = 8; CLK Node = 'clkin'
+        Info: 2: + IC(0.000 ns) + CELL(2.000 ns) = 3.500 ns; Loc. = LC33; Fanout = 38; REG Node = 'clkScale:C1|clkout'
+        Info: 3: + IC(1.000 ns) + CELL(5.000 ns) = 9.500 ns; Loc. = LC17; Fanout = 5; REG Node = 'LEDlit:L1|LED[7]'
+        Info: Total cell delay = 8.500 ns ( 89.47 % )
+        Info: Total interconnect delay = 1.000 ns ( 10.53 % )
+    Info: + Micro clock to output delay of source is 2.000 ns
+    Info: + Longest register to pin delay is 1.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC17; Fanout = 5; REG Node = 'LEDlit:L1|LED[7]'
+        Info: 2: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_21; Fanout = 0; PIN Node = 'LED[7]'
+        Info: Total cell delay = 1.500 ns ( 100.00 % )
+Info: th for register "inputBuffer:I1|Dflip:D1|q" (data pin = "MIDI", clock pin = "clkin") is 6.000 ns
+    Info: + Longest clock path from clock "clkin" to destination register is 9.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.500 ns) = 1.500 ns; Loc. = PIN_43; Fanout = 8; CLK Node = 'clkin'
+        Info: 2: + IC(0.000 ns) + CELL(2.000 ns) = 3.500 ns; Loc. = LC33; Fanout = 38; REG Node = 'clkScale:C1|clkout'
+        Info: 3: + IC(1.000 ns) + CELL(5.000 ns) = 9.500 ns; Loc. = LC22; Fanout = 1; REG Node = 'inputBuffer:I1|Dflip:D1|q'
+        Info: Total cell delay = 8.500 ns ( 89.47 % )
+        Info: Total interconnect delay = 1.000 ns ( 10.53 % )
+    Info: + Micro hold delay of destination is 3.000 ns
+    Info: - Shortest pin to register delay is 6.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.500 ns) = 0.500 ns; Loc. = PIN_26; Fanout = 1; PIN Node = 'MIDI'
+        Info: 2: + IC(1.000 ns) + CELL(5.000 ns) = 6.500 ns; Loc. = LC22; Fanout = 1; REG Node = 'inputBuffer:I1|Dflip:D1|q'
+        Info: Total cell delay = 5.500 ns ( 84.62 % )
+        Info: Total interconnect delay = 1.000 ns ( 15.38 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 237 megabytes
+    Info: Processing ended: Wed Feb 21 19:26:43 2018
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

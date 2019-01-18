@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="test">
+		<CBX_INST_ENTRY INSTANCE_NAME="|test|clkScale:C1|lpm_add_sub:Add0" CBX_FILE_NAME="add_sub_qnh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|test|record:R1|counter:C1|lpm_add_sub:Add0" CBX_FILE_NAME="add_sub_nnh.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
